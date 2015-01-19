@@ -325,7 +325,7 @@ module.exports = function (grunt) {
       }
     },
 
-    validation: {
+    htmllint: {
       options: {
         charset: 'utf-8',
         doctype: 'HTML5',
@@ -337,9 +337,7 @@ module.exports = function (grunt) {
           'Attribute autocomplete not allowed on element button at this point.'
         ]
       },
-      files: {
-        src: '_gh_pages/**/*.html'
-      }
+      src: '_gh_pages/**/*.html'
     },
 
     watch: {
@@ -414,7 +412,7 @@ module.exports = function (grunt) {
   require('time-grunt')(grunt);
 
   // Docs HTML validation task
-  grunt.registerTask('validate-html', ['jekyll:docs', 'validation']);
+  grunt.registerTask('validate-html', ['jekyll:docs', 'htmllint']);
 
   var runSubset = function (subset) {
     return !process.env.TWBS_TEST || process.env.TWBS_TEST === subset;
